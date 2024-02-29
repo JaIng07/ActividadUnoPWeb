@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "Partidas")
@@ -54,6 +54,6 @@ public class Partida {
     private String comentarios;
 
     @ManyToMany(mappedBy = "partidas")
-    Set<Usuario> usuarios;
+    List<Usuario> usuarios;
 
 }

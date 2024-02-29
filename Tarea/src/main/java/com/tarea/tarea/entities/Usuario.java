@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "Usuarios")
@@ -66,6 +65,6 @@ public class Usuario {
     @JoinTable(name = "partidas_usuarios",
             joinColumns = @JoinColumn(name = "idUsuario", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "idPartida", referencedColumnName = "id"))
-    Set<Partida> partidas;
+    List<Partida> partidas;
 
 }
