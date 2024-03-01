@@ -5,9 +5,8 @@ En el actual proyecto desarrollado con SpringBoot estamos implementando una pequ
 la cual consta de 4 tablas (Usuarios, Mensajes, Sugerencias, Partidas), las cuales están relacionadas 
 de la siguiente forma:
 
-Usuarios -> Sugerencias: 1:N
---------------------------------------------------------------------------------------------------------
-Usuarios -> Mensajes: 1:N
---------------------------------------------------------------------------------------------------------
-Usuarios -> Partidas: N:M
---------------------------------------------------------------------------------------------------------
+**Usuarios -> Sugerencias: 1:N**
+
+**Usuarios -> Mensajes: 1:N**
+
+**Usuarios -> Partidas: N:M**
