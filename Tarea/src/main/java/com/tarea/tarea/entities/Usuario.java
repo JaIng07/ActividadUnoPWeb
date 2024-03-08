@@ -2,6 +2,8 @@ package com.tarea.tarea.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,13 +11,14 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "Usuario")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
+@Builder
 public class Usuario {
 
     @Id
