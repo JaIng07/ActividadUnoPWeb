@@ -1,24 +1,29 @@
 package com.project.web.repositories;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 
 import java.util.Optional;
 import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.project.web.AbstractIntegrationDBTest;
 import com.project.web.entities.Mensaje;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-public class MensajeRepositoryTest {
+public class MensajeRepositoryTest extends AbstractIntegrationDBTest {
+
+    private MensajeRepository mensajeRepository;
 
     @Autowired
-    private MensajeRepository mensajeRepository;
+    public MensajeRepositoryTest (MensajeRepository mensajeRepository){
+        this.mensajeRepository = mensajeRepository;
+    }
+
+    @BeforeEach
+    void setUp(){
+        mensajeRepository.deleteAll();
+    }
 
     @Test
     public void MensajeRepositoryTest_SaveAll_ReturnSavedMessages(){

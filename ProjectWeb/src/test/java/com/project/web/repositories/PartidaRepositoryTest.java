@@ -1,7 +1,5 @@
 package com.project.web.repositories;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -9,19 +7,26 @@ import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.project.web.AbstractIntegrationDBTest;
 import com.project.web.entities.Partida;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-public class PartidaRepositoryTest {
+
+public class PartidaRepositoryTest extends AbstractIntegrationDBTest {
+
+    private PartidaRepository partidaRepository;
 
     @Autowired
-    private PartidaRepository partidaRepository;
+    public PartidaRepositoryTest (PartidaRepository partidaRepository){
+        this.partidaRepository = partidaRepository;
+    }
+
+    @BeforeEach
+    void setUp(){
+        partidaRepository.deleteAll();
+    }
 
     @Test
     public void PartidaRepositoryTest_SaveAll_ReturnSavedPlay(){

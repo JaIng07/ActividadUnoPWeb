@@ -1,7 +1,5 @@
 package com.project.web.repositories;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -9,17 +7,22 @@ import com.project.web.AbstractIntegrationDBTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.junit.jupiter.api.Test;
 import com.project.web.entities.Usuario;
 
-@DataJpaTest
-public class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
+class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
 
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
+    @Autowired
     public UsuarioRepositoryTest(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
+    }
+
+    @BeforeEach
+    void setUp() {
+
+        usuarioRepository.deleteAll();
     }
 
     @Test
@@ -35,11 +38,6 @@ public class UsuarioRepositoryTest extends AbstractIntegrationDBTest {
 
         Assertions.assertThat(savedUsuario).isNotNull();
         Assertions.assertThat(savedUsuario.getId()).isGreaterThan(0);
-    }
-
-    @BeforeEach
-    void setUp() {
-        usuarioRepository.deleteAll();
     }
 
     @SuppressWarnings("null")

@@ -1,24 +1,28 @@
 package com.project.web.repositories;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import com.project.web.AbstractIntegrationDBTest;
 import com.project.web.entities.Sugerencia;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-public class SugerenciaRepositoryTest {
+public class SugerenciaRepositoryTest extends AbstractIntegrationDBTest {
+
+    private SugerenciaRepository sugerenciaRepository;
 
     @Autowired
-    private SugerenciaRepository sugerenciaRepository;
+    public SugerenciaRepositoryTest (SugerenciaRepository sugerenciaRepository){
+        this.sugerenciaRepository = sugerenciaRepository;
+    }
+
+    @BeforeEach
+    void setUp(){
+        sugerenciaRepository.deleteAll();
+    }
 
     @SuppressWarnings("null")
     @Test
