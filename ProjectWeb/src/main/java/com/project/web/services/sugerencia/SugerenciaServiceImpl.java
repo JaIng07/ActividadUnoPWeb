@@ -7,6 +7,7 @@ import com.project.web.dtos.sugerencia.SugerenciaMapper;
 import com.project.web.entities.Sugerencia;
 import com.project.web.repositories.SugerenciaRepository;
 
+@Service
 public class SugerenciaServiceImpl implements SugerenciaService{
 
     private final SugerenciaRepository sugerenciaRepository;
