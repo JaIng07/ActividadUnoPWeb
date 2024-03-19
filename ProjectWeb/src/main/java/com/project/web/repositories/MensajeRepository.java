@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MensajeRepository extends JpaRepository<Mensaje, Long> {
@@ -14,6 +15,9 @@ public interface MensajeRepository extends JpaRepository<Mensaje, Long> {
     //Query Methods
 
     //Simples
+    @SuppressWarnings("null")
+    Optional<Mensaje> findById(Long id);
+    
     List<Mensaje> findByCreador(String creador);
     List<Mensaje> findByDestinatario(String destinatario);
     List<Mensaje> findByContenido(String contenido);
