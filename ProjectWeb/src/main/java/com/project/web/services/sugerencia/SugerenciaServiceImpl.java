@@ -6,6 +6,7 @@ import com.project.web.dtos.sugerencia.SugerenciaDto;
 import com.project.web.dtos.sugerencia.SugerenciaMapper;
 import com.project.web.entities.Sugerencia;
 import com.project.web.repositories.SugerenciaRepository;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SugerenciaServiceImpl implements SugerenciaService{
