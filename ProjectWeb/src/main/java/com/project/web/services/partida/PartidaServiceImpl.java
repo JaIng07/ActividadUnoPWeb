@@ -10,6 +10,7 @@ import com.project.web.repositories.PartidaRepository;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Service
 public class PartidaServiceImpl implements PartidaService {
 
     private final PartidaRepository partidaRepository;
