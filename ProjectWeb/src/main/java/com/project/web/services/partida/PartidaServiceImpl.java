@@ -6,6 +6,7 @@ import com.project.web.dtos.partida.PartidaToSaveDto;
 import com.project.web.entities.Partida;
 import com.project.web.exceptions.PartidaNotFoundException;
 import com.project.web.repositories.PartidaRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Objects;
